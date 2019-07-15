@@ -1,13 +1,21 @@
 import random
+import sys
 
-def startMenu(a,b):    
-    choice = input("Please select (r)ock, (p)aper, or (s)cissors: ")
-    if choice == "r":
-        user = "rock"
-    elif choice == "p":
-        user = "paper"
-    elif choice == "s":
-        user = "scissors"
+def startMenu(a,b): 
+    while True:
+        try:
+            choice = input("Please select (r)ock, (p)aper, or (s)cissors: ")
+            if choice == "r":
+                user = "rock"
+                break
+            elif choice == "p":
+                user = "paper"
+                break
+            elif choice == "s":
+                user = "scissors"
+                break
+        except ValueError:
+            continue
     dice = random.randint(0,2)
     print(dice)
     if dice == 0:
@@ -22,7 +30,7 @@ def startMenu(a,b):
     print("You chose :", user)
     print("The computer chose: ", comp)
     rules(user,comp,a,b)
-
+    
 def rules(x,y,count,compCount):
 #if comp and user choose the same thing
     if x == y:
@@ -45,12 +53,20 @@ def rules(x,y,count,compCount):
         compCount += 1
     print("User score: ", count)
     print("Computer score: ", compCount)
-    restart = input("Would you like to play again? (y)es or (n)o: ")
-    if restart == "y":    
-        startMenu(count,compCount)
-    else:
-        return
-            
+    while True:
+        try:
+            restart = input("Would you like to play again? (y)es or (n)o: ")
+            if restart == "y":    
+                startMenu(count,compCount)
+            elif restart == "n":
+                sys.exit(0)
+            else:
+                print("please enter y or n")
+            continue
+        except ValueError:
+            print("please enter y or n")
+            continue
+    return
 tally = 0
 comptally = 0
 startMenu(tally,comptally)
