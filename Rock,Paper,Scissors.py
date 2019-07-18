@@ -34,8 +34,8 @@ def startMenu(a,b):
 def rules(x,y,count,compCount):
 #if comp and user choose the same thing
     if x == y:
-        count += 1
-        compCount += 1
+        count += 0
+        compCount += 0
 #paper beats rock
     elif x == "rock" and y == "paper":
         compCount += 1
