@@ -4,7 +4,7 @@ import sys
 def startMenu(a,b): 
     while True:
         try:
-            choice = raw_input("Please select (r)ock, (p)aper, or (s)cissors: ")
+            choice = input("Please select (r)ock, (p)aper, or (s)cissors: ")
             if choice == "r":
                 user = "rock"
                 break
@@ -55,7 +55,7 @@ def rules(x,y,count,compCount):
     print("Computer score: ", compCount)
     while True:
         try:
-            restart = raw_input("Would you like to play again? (y)es or (n)o: ")
+            restart = input("Would you like to play again? (y)es or (n)o: ")
             if restart == "y":    
                 startMenu(count,compCount)
             elif restart == "n":
